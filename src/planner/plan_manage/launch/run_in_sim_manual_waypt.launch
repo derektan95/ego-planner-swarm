@@ -18,6 +18,10 @@
   <!-- number of moving objects -->
   <arg name="obj_num" value="10" />
 
+  <!-- 1: use 2D Nav Goal to select goal  -->
+  <!-- 2: use global waypoints below  -->
+  <arg name="flight_type" default="1" />  
+
   <!-- main algorithm params -->
   <include file="$(find ego_planner)/launch/advanced_param.xml">
 
@@ -57,7 +61,7 @@
 
     <!-- 1: use 2D Nav Goal to select goal  -->
     <!-- 2: use global waypoints below  -->
-    <arg name="flight_type" value="1" />          <!-- ORIGINAL: 2 -->
+    <arg name="flight_type" value="$(arg flight_type)" />          <!-- ORIGINAL: 2 -->
     
     <!-- global waypoints -->
     <!-- It generates a piecewise min-snap traj passing all waypoints -->
